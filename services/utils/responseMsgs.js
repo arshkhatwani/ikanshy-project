@@ -18,6 +18,10 @@ const transactionType = {
   status: "Error",
   message: "Please provide a transaction type",
 };
+const validCredentials = {
+  status: "Error",
+  message: "Please provide valid credentials",
+};
 
 module.exports = {
   userNotFoundMessage,
@@ -25,4 +29,5 @@ module.exports = {
   wrongPasswordMessage,
   insufficientFunds,
   transactionType,
+  validCredentials,
 };
