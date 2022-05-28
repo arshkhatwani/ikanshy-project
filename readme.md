@@ -13,6 +13,8 @@ _Note_: You need to have Node.js, Postgres installed in your machine.
 
 ## Api documentation
 
+_Note_: The transaction APIs and login API also check if the user is present or not. Incase there is no user with the request credentials the APIs return a 404 status response.
+
 ### User Registration
 
 | Description  | User Registration                          |
@@ -21,6 +23,8 @@ _Note_: You need to have Node.js, Postgres installed in your machine.
 | Endpoint     | /user/register                             |
 | Body         | { "username": "arsh", "password": "1234" } |
 | Response     | { "username": "arsh", "balance": "0" }     |
+
+_Note_: If a user with same username already exists this API will return 400 response with a message saying "User with the same username already exists"
 
 \
 &nbsp;
@@ -73,6 +77,8 @@ _Note_: You need to have Node.js, Postgres installed in your machine.
 | Body         | { "amount": 50 }           |
 | Endpoint     | /transaction?type=debit    |
 | Response     | { "currentBalance": 100 }  |
+
+_Note_: This API returns a 400 status response if the amount to be debited is greater than currrent balance.
 
 ## Middlewares
 
