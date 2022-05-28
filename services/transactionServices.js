@@ -3,6 +3,7 @@ const { getUser } = require("../queries/userQueries");
 const {
   userNotFoundMessage,
   insufficientFunds,
+  transactionType,
 } = require("./utils/responseMsgs");
 
 const viewBalance = async (req, res) => {
@@ -26,6 +27,10 @@ const changeBalance = async (req, res) => {
   try {
     const { username } = req.headers.tokenData;
     var { amount } = req.body;
+
+    if (req.query.type != "credit" && req.query.type != "debit") {
+      return res.status(400).json(transactionType);
+    }
     if (req.query.type == "debit") amount = -amount;
 
     const checkUser = await getUser(username);

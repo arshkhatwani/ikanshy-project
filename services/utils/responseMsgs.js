@@ -14,10 +14,15 @@ const insufficientFunds = {
   status: "Error",
   message: "Insufficient Funds",
 };
+const transactionType = {
+  status: "Error",
+  message: "Please provide a transaction type",
+};
 
 module.exports = {
   userNotFoundMessage,
   usernameConflictMessage,
   wrongPasswordMessage,
   insufficientFunds,
+  transactionType,
 };
