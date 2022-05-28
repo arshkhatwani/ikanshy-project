@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS ikanshy_project;
+
+CREATE TABLE IF NOT EXISTS users (
+   username TEXT PRIMARY KEY NOT NULL,
+   password TEXT NOT NULL,
+   balance NUMERIC DEFAULT 0
+);
