@@ -19,6 +19,7 @@ const registerUser = async (req, res) => {
     }
 
     const newUser = await createUser(username, password);
+    delete newUser.password;
 
     return res.status(201).json(newUser);
   } catch (e) {
